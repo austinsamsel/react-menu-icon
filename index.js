@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MyComponent from './MyComponent';
+import MenuIcon from './MenuIcon';
 import {StyleRoot} from 'radium';
 
 ReactDOM.render(
     <StyleRoot>
-      <MyComponent /> 
+      <MenuIcon /> 
     </StyleRoot>,
     document.getElementById('root')  
   );

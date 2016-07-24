@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 import color from 'color';
 
-class MyComponent extends Component {
+class MenuIcon extends Component {
   
   constructor() {
     super();
@@ -90,4 +90,4 @@ class MyComponent extends Component {
   }
 }
 
-export default Radium(MyComponent);
+export default Radium(MenuIcon);
