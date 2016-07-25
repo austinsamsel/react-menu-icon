@@ -75,7 +75,7 @@ class MenuIcon extends Component {
      };
 
     let b2opacity = this.state.open ? '0' : '1';
-    let b2trans   = this.state.open ? 'scale(0)' : 'scale(1)';;
+    let b2trans   = this.state.open ? 'scale(0)' : 'scale(1)';
 
     const s = {
       wrap: {
