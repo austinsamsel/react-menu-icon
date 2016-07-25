@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Radium from 'radium';
-import color from 'color';
 
 class MenuIcon extends Component {
   
@@ -12,31 +11,71 @@ class MenuIcon extends Component {
       hover:   false
     }
     this.handleClick = this.handleClick.bind(this);
+    this.handleHover = this.handleHover.bind(this);
+    this.handleLeave = this.handleLeave.bind(this);
   }
     
   handleClick() {
     if(this.state.open){
       this.setState({
-        open: false
+        open: false,
+        hover: false
       });
     } else {
       this.setState({
-        open: true
+        open: true,
+        hover: false
       });
     }
   }
 
+  handleHover() {
+    this.setState({
+      hover: true
+    });
+  }
+
+  handleLeave() {
+    this.setState({
+      hover: false
+    });
+  }
+
   render() {
-    
-    let b1rotate = this.state.open ? 'rotate(135deg)' : 'rotate(0deg)';
-    let b1top    = this.state.open ? '0'              : '-1rem';
+
+    let b1top, b3top, b1trans, b3trans;
+      // if menu is open but user is not hovering.
+      if (this.state.open && !this.state.hover ){
+        b1top = '0';
+        b3top = '0';
+        b1trans = 'rotate(135deg)';
+        b3trans = 'rotate(-135deg)';
+      } 
+      // if menu is open and the user is hovering.
+      else if (this.state.open && this.state.hover) {
+        b1top = '0';
+        b3top = '0';
+        b1trans = 'rotate(0deg)';
+        b3trans = 'rotate(0deg)';
+      } 
+      // if menu is closed and the user is hoving.
+      else if (!this.state.open && this.state.hover) {
+        b1top = '-1.75rem';
+        b3top = '1.75rem';
+        b1trans = 'rotate(0deg)';
+        b3trans = 'rotate(0deg)';
+      }
+      // if menu is closed and user is not hovering, default.
+      else{
+        b1top= '-1rem';
+        b3top= '1rem';
+        b1trans = 'rotate(0deg)';
+        b3trans = 'rotate(0deg)';
+     };
 
     let b2opacity = this.state.open ? '0' : '1';
-    let b2scale   = this.state.open ? 'scale(0)' : 'scale(1)';;
+    let b2trans   = this.state.open ? 'scale(0)' : 'scale(1)';;
 
-    let b3rotate = this.state.open ? 'rotate(-135deg)': 'rotate(0deg)';
-    let b3top    = this.state.open ? '0'              : '1rem'; 
-    
     const s = {
       wrap: {
         height:'100vh',
@@ -50,8 +89,9 @@ class MenuIcon extends Component {
         display:'flex',
         alignSelf: 'center',
         position: 'relative',
-        width:'100px',
-        height:'100px'
+        width:'6rem',
+        height:'6rem',
+        backgroundColor:'red'
       },
       bar: {
         position: 'absolute',
@@ -63,24 +103,26 @@ class MenuIcon extends Component {
       },
       b1: {
         top: b1top,
-        transform: b1rotate
+        transform: b1trans,
       },
       b2: {
         opacity: b2opacity,
-        transform: b2scale
-        //animation: b2anim,
-        //animationName: b2animName 
+        transform: b2trans
       },
       b3: {
         top: b3top,
-        transform: b3rotate
+        transform: b3trans
       }
     };
     
 
     return (
       <div style={s.wrap}>
-        <div style={s.icon} onClick={this.handleClick}>
+        <div style={s.icon} 
+          onMouseOver={this.handleHover}  
+          onClick={this.handleClick} 
+          onMouseOut={this.handleLeave}
+        >
           <span style={[s.bar, s.b1]}></span>
           <span style={[s.bar, s.b2]}></span>
           <span style={[s.bar, s.b3]}></span>
