@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Radium from 'radium';
 
 class MenuIcon extends Component {
-  
+
   constructor() {
     super();
 
@@ -15,7 +15,7 @@ class MenuIcon extends Component {
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
   }
-    
+
   handleClick() {
     if(this.state.open){
       this.setState({
@@ -51,14 +51,14 @@ class MenuIcon extends Component {
         b3top = '0';
         b1trans = 'rotate(135deg)';
         b3trans = 'rotate(-135deg)';
-      } 
+      }
       // if menu is open and the user is hovering.
       else if (this.state.open && this.state.hover) {
         b1top = '0';
         b3top = '0';
         b1trans = 'rotate(0deg) scale(1.25)';
         b3trans = 'rotate(0deg) scale(1.25)';
-      } 
+      }
       // if menu is closed and the user is hoving.
       else if (!this.state.open && this.state.hover) {
         b1top = '-1.75rem';
@@ -117,20 +117,20 @@ class MenuIcon extends Component {
         transform: b3trans
       }
     };
-    
+
 
     return (
       <div style={s.wrap}>
-        <div style={s.icon} 
-          onMouseOver={this.handleHover}  
-          onClick={this.handleClick} 
+        <div style={s.icon}
+          onMouseOver={this.handleHover}
+          onClick={this.handleClick}
           onMouseOut={this.handleLeave}
         >
           <span style={[s.bar, s.b1]}></span>
           <span style={[s.bar, s.b2]}></span>
           <span style={[s.bar, s.b3]}></span>
-        </div> 
-      </div>    
+        </div>
+      </div>
     );
   }
 }
