@@ -8,13 +8,13 @@ project created with [Quik](https://github.com/satya164/quik).
 
 ## Set up
 
-    npm install -g quik
+`npm install -g quik`
 
-    git clone git@github.com:austinsamsel/react-menu-icon.git
+`git clone git@github.com:austinsamsel/react-menu-icon.git`
 
-    cd react-menu-icon
+`cd react-menu-icon`
 
-    quik
+`quik`
 
 🏄
     
