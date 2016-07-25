@@ -47,15 +47,15 @@ class MenuIcon extends Component {
     let b1top, b3top, b1trans, b3trans;
       // if menu is open but user is not hovering.
       if (this.state.open && !this.state.hover ){
-        b1top = '0';
-        b3top = '0';
+        b1top = '0px';
+        b3top = '0px';
         b1trans = 'rotate(135deg)';
         b3trans = 'rotate(-135deg)';
       }
       // if menu is open and the user is hovering.
       else if (this.state.open && this.state.hover) {
-        b1top = '0';
-        b3top = '0';
+        b1top = '0px';
+        b3top = '0px';
         b1trans = 'rotate(0deg) scale(1.25)';
         b3trans = 'rotate(0deg) scale(1.25)';
       }
@@ -127,9 +127,9 @@ class MenuIcon extends Component {
           onClick={this.handleClick}
           onMouseOut={this.handleLeave}
         >
-          <span style={[s.bar, s.b1]}></span>
-          <span style={[s.bar, s.b2]}></span>
-          <span style={[s.bar, s.b3]}></span>
+          <span className="b1" style={[s.bar, s.b1]}></span>
+          <span className="b2" style={[s.bar, s.b2]}></span>
+          <span className="b3" style={[s.bar, s.b3]}></span>
         </div>
       </div>
     );

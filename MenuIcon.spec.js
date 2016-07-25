@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { shallow } from 'enzyme';
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import chaiEnzyme from 'chai-enzyme';
 import { spy } from 'sinon';
 import MenuIcon from './MenuIcon';
+
+chai.use(chaiEnzyme())
 
 describe('the environment', () => {
   it('works, hopefully', () => {
@@ -14,7 +17,10 @@ describe('Menu Icon', () => {
 
   const wrapper = shallow(<MenuIcon />);
   const icon = wrapper.find('.icon');
-
+  //const b1 = wrapper.find('.b1');
+  //const b2 = wrapper.find('.b2');
+  //const b3 = wrapper.find('.b3');
+  
   it('should render as icon wrapped in a div', () => {
     expect(wrapper.find('.icon')).to.have.length(1);
     expect(wrapper.type()).to.eql('div');
@@ -59,7 +65,43 @@ describe('Menu Icon', () => {
     icon.simulate('MouseOut');
     expect(wrapper.state('hover')).to.equal(false);
   });
+ 
+  it('should have a default state of visually stacked bars', () => {
+    wrapper.setState({'open': false});
+    const b1 = wrapper.find('.b1');
+    const b2 = wrapper.find('.b2');
+    const b3 = wrapper.find('.b3');
+    expect(b1).to.have.style('transform', 'rotate(0deg)');
+    expect(b2).to.have.style('opacity'  , '1');
+    expect(b3).to.have.style('transform', 'rotate(0deg)');
+  });
 
+  it('should should form an "X" when "open"', () => {
+    wrapper.setState({'open': true});
+    const b1 = wrapper.find('.b1');
+    const b2 = wrapper.find('.b2');
+    const b3 = wrapper.find('.b3');
+    expect(b1).to.have.style('transform', 'rotate(135deg)');
+    expect(b2).to.have.style('opacity'  , '0');
+    expect(b3).to.have.style('transform', 'rotate(-135deg)');
+  });
+  
+  it('should spread when hovered while "closed"', () => {
+    wrapper.setState({'open': false, 'hover': true});
+    const b1 = wrapper.find('.b1');
+    const b3 = wrapper.find('.b3');
+    expect(b1).to.have.style('top', '-1.75rem');
+    expect(b3).to.have.style('top', '1.75rem');
+  });
+
+  
+  it('should collapse when hovered while "open"', () => {
+    wrapper.setState({'open': true, 'hover': true});
+    const b1 = wrapper.find('.b1');
+    const b3 = wrapper.find('.b3');
+    expect(b1).to.have.style('top', '0px');
+    expect(b3).to.have.style('top', '0px');
+  });
 
 
 });
