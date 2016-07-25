@@ -6,7 +6,7 @@ view the demo on codepen: http://codepen.io/austinnnnnnn/full/VjxyYz/
 
 project created with [Quik](https://github.com/satya164/quik).
 
-### Set up
+## Set up
 
     npm install -g quik
 
