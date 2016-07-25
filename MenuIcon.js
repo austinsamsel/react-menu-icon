@@ -79,12 +79,13 @@ class MenuIcon extends Component {
 
     const s = {
       wrap: {
-        height:'100vh',
-        width:'100%',
+        border:'15px solid #caffff',
+        height:'calc(100vh - 30px)',
+        width:'calc(100% - 30px)',
         display:'flex',
         justifyContent:'center',
         alignItems: 'center',
-        backgroundColor: '#eee'
+        backgroundColor: '#fff'
       },
       icon: {
         display:'flex',
