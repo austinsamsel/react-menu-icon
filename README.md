@@ -14,7 +14,15 @@ project created with [Quik](https://github.com/satya164/quik).
 
 `cd react-menu-icon`
 
+`npm install`
+
 `quik`
+
+## Tests
+
+`npm run test`
+
+`npm run test-watch`
 
 🏄
     
