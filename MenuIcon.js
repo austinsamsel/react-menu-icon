@@ -89,12 +89,13 @@ class MenuIcon extends Component {
         display:'flex',
         alignSelf: 'center',
         position: 'relative',
-        width:'6rem',
-        height:'6rem',
-        backgroundColor:'red'
+        width:'4rem',
+        height:'4rem',
+        alignContent:'flex-end'
       },
       bar: {
         position: 'absolute',
+        marginTop:'1.8rem',
         width: '4rem',
         height: '0.5rem',
         borderRadius: '0.25rem',
