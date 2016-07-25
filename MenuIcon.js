@@ -55,8 +55,8 @@ class MenuIcon extends Component {
       else if (this.state.open && this.state.hover) {
         b1top = '0';
         b3top = '0';
-        b1trans = 'rotate(0deg)';
-        b3trans = 'rotate(0deg)';
+        b1trans = 'rotate(0deg) scale(1.25)';
+        b3trans = 'rotate(0deg) scale(1.25)';
       } 
       // if menu is closed and the user is hoving.
       else if (!this.state.open && this.state.hover) {
