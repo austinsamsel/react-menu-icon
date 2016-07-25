@@ -10,6 +10,7 @@ class MenuIcon extends Component {
       open:    false,
       hover:   false
     }
+
     this.handleClick = this.handleClick.bind(this);
     this.handleHover = this.handleHover.bind(this);
     this.handleLeave = this.handleLeave.bind(this);
