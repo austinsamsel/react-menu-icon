@@ -121,7 +121,8 @@ class MenuIcon extends Component {
 
     return (
       <div style={s.wrap}>
-        <div style={s.icon}
+        <div className='icon' 
+          style={s.icon}
           onMouseOver={this.handleHover}
           onClick={this.handleClick}
           onMouseOut={this.handleLeave}
