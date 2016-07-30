@@ -2,6 +2,7 @@
   "name": "quik-project",
   "version": "0.0.1",
   "description": "Sample project generated with Quik",
+  "author": "Austin Samsel",
   "license": "MIT",
   "dependencies": {},
   "devDependencies": {
